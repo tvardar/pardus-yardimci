@@ -1,5 +1,5 @@
 # gorsel_araclar.py
-# GÜNCELLEME: 'Ayarlar' (Dişli) ikonu eklendi.
+# DÜZELTME: QtSvg bağımlılığı kaldırıldı. İkonlar QPainter ile çiziliyor (Hatasız).
 
 import platform
 import psutil
@@ -13,14 +13,13 @@ import re
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 from PyQt6.QtWidgets import QWidget, QVBoxLayout
-from PyQt6.QtCore import Qt, QThread, pyqtSignal, QRectF, QSize, QByteArray
-from PyQt6.QtGui import QFont, QColor, QPen, QPainter, QPixmap
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QRectF, QSize, QPointF
+from PyQt6.QtGui import QFont, QColor, QPen, QPainter, QPixmap, QPolygonF
 from PyQt6.QtWebEngineWidgets import QWebEngineView
 from PyQt6.QtWebEngineCore import QWebEngineSettings
-from PyQt6.QtSvg import QSvgRenderer
 
 
-# --- GÖRSEL BİLEŞENLER (Aynen Kalıyor) ---
+# --- GÖRSEL BİLEŞENLER ---
 class GostergeWidget(QWidget):
     def sizeHint(self): return QSize(150, 150)
 
@@ -74,47 +73,85 @@ class HaritaWidget(QWidget):
         self.harita.setHtml(self.html_sablon.format(lat=lat, lon=lon))
 
 
+# --- İKON ÇİZİCİ (SVG BAĞIMLILIĞI OLMADAN) ---
 class SvgIkonOlusturucu:
     @staticmethod
-    def get_pixmap(svg_data, boyut=24):
-        r = QSvgRenderer(QByteArray(svg_data.encode()));
-        p = QPixmap(boyut, boyut);
-        p.fill(Qt.GlobalColor.transparent);
-        pt = QPainter(p);
-        r.render(pt);
-        pt.end()
+    def _bos_pixmap(boyut=24):
+        p = QPixmap(boyut, boyut)
+        p.fill(Qt.GlobalColor.transparent)
         return p
 
     @staticmethod
     def termometre_getir(renk="#ff5555", boyut=24):
-        return SvgIkonOlusturucu.get_pixmap(
-            f"""<svg viewBox="0 0 24 24" fill="none"><path d="M12 2C10.34 2 9 3.34 9 5V13.09C7.83 13.94 7.13 15.33 7.13 16.87C7.13 19.7 9.3 22 12 22C14.7 22 16.87 19.7 16.87 16.87C16.87 15.33 16.17 13.94 15 13.09V5C15 3.34 13.66 2 12 2Z" stroke="{renk}" stroke-width="2"/><path d="M12 12V6" stroke="{renk}" stroke-width="2"/><circle cx="12" cy="17" r="2" fill="{renk}"/></svg>""",
-            boyut)
+        p = SvgIkonOlusturucu._bos_pixmap(boyut)
+        painter = QPainter(p)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(QPen(QColor(renk), 2))
+        # Tüp
+        painter.drawLine(12, 4, 12, 16)
+        # Hazne
+        painter.setBrush(QColor(renk))
+        painter.drawEllipse(9, 14, 6, 6)
+        painter.end()
+        return p
 
     @staticmethod
     def indir_ikonu(renk="#33AADD", boyut=24):
-        return SvgIkonOlusturucu.get_pixmap(
-            f"""<svg viewBox="0 0 24 24" fill="none" stroke="{renk}" stroke-width="2"><path d="M12 5V19M12 19L5 12M12 19L19 12"/></svg>""",
-            boyut)
+        p = SvgIkonOlusturucu._bos_pixmap(boyut)
+        painter = QPainter(p)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(QPen(QColor(renk), 3, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+        # Ok Aşağı
+        painter.drawLine(12, 4, 12, 20)
+        painter.drawLine(12, 20, 6, 14)
+        painter.drawLine(12, 20, 18, 14)
+        painter.end()
+        return p
 
     @staticmethod
     def yukle_ikonu(renk="#e67e22", boyut=24):
-        return SvgIkonOlusturucu.get_pixmap(
-            f"""<svg viewBox="0 0 24 24" fill="none" stroke="{renk}" stroke-width="2"><path d="M12 19V5M12 5L5 12M12 5L19 12"/></svg>""",
-            boyut)
+        p = SvgIkonOlusturucu._bos_pixmap(boyut)
+        painter = QPainter(p)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(QPen(QColor(renk), 3, Qt.PenStyle.SolidLine, Qt.PenCapStyle.RoundCap))
+        # Ok Yukarı
+        painter.drawLine(12, 20, 12, 4)
+        painter.drawLine(12, 4, 6, 10)
+        painter.drawLine(12, 4, 18, 10)
+        painter.end()
+        return p
 
     @staticmethod
     def anahtar_ikonu(renk="#aaaaaa", boyut=20):
-        return SvgIkonOlusturucu.get_pixmap(
-            f"""<svg viewBox="0 0 24 24" fill="{renk}"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>""",
-            boyut)
+        p = SvgIkonOlusturucu._bos_pixmap(boyut)
+        painter = QPainter(p)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(QPen(QColor(renk), 2))
+        # Kafa
+        painter.drawEllipse(4, 4, 8, 8)
+        # Gövde
+        painter.drawLine(10, 10, 16, 16)
+        # Diş
+        painter.drawLine(16, 16, 16, 18)
+        painter.end()
+        return p
 
-    # YENİ: AYARLAR (DİŞLİ) İKONU
     @staticmethod
     def ayarlar_ikonu(renk="#E0E0E0", boyut=24):
-        return SvgIkonOlusturucu.get_pixmap(
-            f"""<svg viewBox="0 0 24 24" fill="{renk}"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>""",
-            boyut)
+        p = SvgIkonOlusturucu._bos_pixmap(boyut)
+        painter = QPainter(p)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setPen(QPen(QColor(renk), 2))
+        # Basit Dişli (Çember)
+        painter.drawEllipse(6, 6, 12, 12)
+        painter.drawEllipse(9, 9, 6, 6)
+        # Dişler (4 tane temsili)
+        painter.drawLine(12, 2, 12, 6)
+        painter.drawLine(12, 18, 12, 22)
+        painter.drawLine(2, 12, 6, 12)
+        painter.drawLine(18, 12, 22, 12)
+        painter.end()
+        return p
 
 
 # --- THREAD ---
