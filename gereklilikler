@@ -1,0 +1,6 @@
+sudo apt install python3-pyqt6 python3-pyqt6.qtwidgets -y
+
+sudo apt install qt6-webengine-dev python3-pyqt6 -y
+
+sudo apt install -f
+
