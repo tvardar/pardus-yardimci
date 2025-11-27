@@ -49,9 +49,9 @@ Karmaşık terminal komutları yerine, **modern ve anlaşılır bir arayüz** il
 
 ![Ekran Görüntüsü](icons/yardimci6.png)
 
-![Ekran Görüntüsü](icons/yardimc7.png)
+![Ekran Görüntüsü](icons/yardimci7.png)
 
-![Ekran Görüntüsü](icons/yardimc8.png)
+![Ekran Görüntüsü](icons/yardimci8.png)
 
 ---
 
