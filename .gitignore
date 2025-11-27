@@ -1,0 +1,18 @@
+# Derleme Klasörleri
+build/
+dist/
+build_deb/
+__pycache__/
+*.spec
+
+# Çıktı Dosyaları (Kod deposuna girmemeli)
+*.deb
+*.exe
+*.log
+
+# Sistem Dosyaları
+.idea/
+.vscode/
+venv/
+env/
+.DS_Store
