@@ -9,8 +9,7 @@
 
 Karmaşık terminal komutları yerine, **modern ve anlaşılır bir arayüz** ile sisteminize tam hakimiyet kurmanızı sağlar.
 
-![Ekran Görüntüsü](icons/yardimci-logo.png)
-*(Uygulama ekran görüntülerini buraya ekleyebilirsiniz)*
+![Ekran Görüntüsü](icons/yardimci.png)
 
 ---
 
