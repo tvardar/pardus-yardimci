@@ -74,8 +74,9 @@ Son kullanıcılar için en kolay yöntemdir.
 
 2. İndirdiğiniz dosyaya **çift tıklayarak** veya terminalden aşağıdaki komutla kurun:
 
+```bash
 sudo dpkg -i pardus-yardimci_1.0_amd64.deb
-sudo apt-get install -f
+sudo apt-get install -f  # Eksik bağımlılık varsa tamamlar
 
 ---
 
