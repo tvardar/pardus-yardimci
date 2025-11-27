@@ -77,7 +77,7 @@ Son kullanıcılar için en kolay yöntemdir.
 ```bash
 sudo dpkg -i pardus-yardimci_1.0_amd64.deb
 sudo apt-get install -f  # Eksik bağımlılık varsa tamamlar
-
+```
 ---
 
 ### Yöntem 2: Kaynak Koddan Derleme (Yazılım geliştiriciler)
