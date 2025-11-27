@@ -27,9 +27,19 @@ Karmaşık terminal komutları yerine, **modern ve anlaşılır bir arayüz** il
 * **Matrix Temalı Mini Ekran:** Ekranın köşesinde, dikkatinizi dağıtmadan çalışan, şeffaf ve minimalist sistem monitörü.
 * **Her Zaman Üstte:** Diğer pencerelerin üzerinde kalarak sistem durumunu sürekli göz önünde tutar.
 
+![Ekran Görüntüsü](icons/yardimci10.png)
+
+---
+
 ### 🚀 3. Profesyonel Hız Testi
 * **Multi-Thread Performans:** Cloudflare altyapısını kullanarak 4 farklı kanaldan (multi-thread) eş zamanlı test yapar.
 * **Yüksek Doğruluk:** Ping (Gecikme), Jitter, Download ve Upload hızlarını en yakın sunucudan otomatik ölçer.
+
+![Ekran Görüntüsü](icons/yardimci4.png)
+
+![Ekran Görüntüsü](icons/yardimci5.png)
+
+---
 
 ### 🛡️ 4. Sistem ve Güvenlik Yönetimi
 * **Güvenlik Duvarı (UFW):** Grafik arayüz ile güvenlik duvarını açıp kapatın, kuralları listeleyin.
@@ -37,15 +47,29 @@ Karmaşık terminal komutları yerine, **modern ve anlaşılır bir arayüz** il
 * **Başlangıç Uygulamaları:** Bilgisayar açılışında otomatik başlayan programları yönetin.
 * **Wi-Fi Şifre Kurtarma:** Kayıtlı ağların şifrelerini tek tıkla görüntüleyin.
 
+![Ekran Görüntüsü](icons/yardimci6.png)
+
+![Ekran Görüntüsü](icons/yardimc7.png)
+
+![Ekran Görüntüsü](icons/yardimc8.png)
+
+---
+
 ### 🛠️ 5. Bakım ve Onarım
 * **Tek Tıkla Temizlik:** `apt` önbelleğini, gereksiz paketleri ve eski yapılandırma dosyalarını temizler.
 * **Sistem Güncelleme:** Sistemi en güncel haline getirir.
 * **Paket Onarımı:** Bozuk paket bağımlılıklarını (`fix-broken`) otomatik onarır.
 
+![Ekran Görüntüsü](icons/yardimci9.png)
+
+---
+
 ### 💾 6. Gelişmiş Donanım Analizi
 * **Akıllı Disk Algılama:** Fiziksel (HDD/SSD) ve Sanal (Loop/Ram) diskleri ayırt eder, doluluk oranlarını raporlar.
 * **Batarya Sağlığı:** Laptop kullanıcıları için batarya sağlığı, şarj durumu ve kalan süre tahmini.
 * **Donanım Detayları:** CPU Modeli, GPU (Ekran Kartı), Kernel sürümü ve Dağıtım bilgileri.
+
+![Ekran Görüntüsü](icons/yardimci2.png)
 
 ---
 
