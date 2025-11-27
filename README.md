@@ -77,6 +77,7 @@ Son kullanıcılar için en kolay yöntemdir.
 sudo dpkg -i pardus-yardimci_1.0_amd64.deb
 sudo apt-get install -f
 
+---
 
 ### Yöntem 2: Kaynak Koddan Derleme (Yazılım geliştiriciler)
 
@@ -84,15 +85,15 @@ sudo apt-get install -f
 git clone [https://github.com/tvardar/pardus-yardimci.git](https://github.com/tvardar/pardus-yardimci.git)
 cd pardus-yardimci
 
-### 2. Gerekli kütüphaneleri yükleyin
+#### 2. Gerekli kütüphaneleri yükleyin
 pip install -r requirements.txt
 
-### 3. Uygulamayı başlatın
+#### 3. Uygulamayı başlatın
 python3 yardimci_app.py
 
 
 
-## 🤝 Katkıda Bulunma
+### 🤝 Katkıda Bulunma
 
 Projeye katkıda bulunmak isterseniz memnuniyet duyarız!
 
