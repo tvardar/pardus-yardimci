@@ -95,7 +95,7 @@ Bu proje, performans ve kararlılık için aşağıdaki teknolojiler kullanılar
 
 ## 📦 Kurulum
 
-### Yöntem 1: .DEB Paketi ile Kurulum (Önerilen)
+### Yöntem 1 A: PARDUS 23 VE ESKİ SÜRÜMLER İÇİN .DEB Paketi ile Kurulum (Önerilen)
 Son kullanıcılar için en kolay yöntemdir.
 
 1. **[Sürümler (Releases)](https://github.com/tvardar/pardus-yardimci/releases)** sayfasından en son `.deb` dosyasını indirin.
@@ -108,6 +108,18 @@ sudo apt-get install -f  # Eksik bağımlılık varsa tamamlar
 ```
 ---
 
+### Yöntem 1 B: PARDUS 25 İÇİN .DEB Paketi ile Kurulum (Önerilen)
+Son kullanıcılar için en kolay yöntemdir.
+
+1. **[Sürümler (Releases)](https://github.com/tvardar/pardus-yardimci/releases)** sayfasından en son `.deb` dosyasını indirin.
+
+2. İndirdiğiniz dosyaya **çift tıklayarak** veya terminalden aşağıdaki komutla kurun:
+
+```bash
+sudo dpkg -i pardus-yardimci_1.1_amd64.deb
+sudo apt-get install -f  # Eksik bağımlılık varsa tamamlar
+```
+---
 ### Yöntem 2: Kaynak Koddan Derleme (Yazılım geliştiriciler)
 
 #### 1. Depoyu klonlayın
