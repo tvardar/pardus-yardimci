@@ -98,7 +98,7 @@ Bu proje, performans ve kararlılık için aşağıdaki teknolojiler kullanılar
 ### Yöntem 1 A: PARDUS 23 VE ESKİ SÜRÜMLER İÇİN .DEB Paketi ile Kurulum (Önerilen)
 Son kullanıcılar için en kolay yöntemdir.
 
-1. **[Sürümler (Releases)](https://github.com/tvardar/pardus-yardimci/releases)** sayfasından en son `.deb` dosyasını indirin.
+1. **[Sürümler (Releases)](https://github.com/tvardar/pardus-yardimci/releases/tag/v.1.0))** sayfasından en son `.deb` dosyasını indirin.
 
 2. İndirdiğiniz dosyaya **çift tıklayarak** veya terminalden aşağıdaki komutla kurun:
 
