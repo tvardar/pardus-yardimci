@@ -1,5 +1,9 @@
 # 🐧 Pardus Yardımcı (Pardus Assistant)
 
+Pardus 23 sürümü için [https://github.com/tvardar/pardus-yardimci/releases](https://github.com/tvardar/pardus-yardimci/releases/tag/v.1.0)
+
+Pardus 25 sürümü için [https://github.com/tvardar/pardus-yardimci/releases](https://github.com/tvardar/pardus-yardimci/releases/tag/v.1.1)
+
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Pardus%20%7C%20Debian-red.svg)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-yellow.svg)
